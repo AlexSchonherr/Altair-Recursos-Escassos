@@ -1,0 +1,10 @@
+Revisar planetas
+    Minérios disponivel em cada um
+    Mapas de destribuição dos recursos
+    Profundidade de ocorrência dos minérios
+    Clima e céu
+
+Revisar asteroides
+    Minérios a serem encontrados
+
+Implementar o mod No-Scrapt

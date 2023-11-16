@@ -1,0 +1,382 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <PlanetGeneratorDefinitions>
+        <PlanetGeneratorDefinition>
+            <Id>
+                <TypeId>PlanetGeneratorDefinition</TypeId>
+                <SubtypeId>Moon</SubtypeId>
+            </Id>
+
+            <Difficulty>DifficultyHard</Difficulty>
+            <!--!!!Important!! Read if you want to mod Planets! -->
+            <!--Following tag switches off loading from certain color channels. Its performance measure in cases where channels are not used-->
+            <!--Make sure you are not modding a switched off channel-->
+            <PlanetMaps Material="true" Ores="true" Biome="true" Occlusion="true"/>
+
+            <MesherPostprocessing xsi:type="MyObjectBuilder_VoxelMesherComponentDefinition">
+                <PostprocessingSteps>
+                    <Step xsi:type="MyObjectBuilder_VoxelPostprocessingDecimate" ForPhysics="true">
+                        <LodSettings>
+                            <Settings FromLod="0">
+                                <FeatureAngle>15</FeatureAngle>
+                                <EdgeThreshold>.04</EdgeThreshold>
+                                <PlaneThreshold>.02</PlaneThreshold>
+                            </Settings>
+                            <Settings FromLod="1">
+                                <FeatureAngle>15</FeatureAngle>
+                                <EdgeThreshold>.04</EdgeThreshold>
+                                <PlaneThreshold>.04</PlaneThreshold>
+                            </Settings>
+                            <Settings FromLod="2">
+                                <FeatureAngle>15</FeatureAngle>
+                                <EdgeThreshold>.06</EdgeThreshold>
+                                <PlaneThreshold>.06</PlaneThreshold>
+                            </Settings>
+                        </LodSettings>
+                    </Step>
+                </PostprocessingSteps>
+            </MesherPostprocessing>
+
+            <SurfaceDetail>
+                <Texture>Data/PlanetDataFiles/Extra/material_detail_1</Texture>
+                <Size>256</Size>
+                <Scale>2</Scale>
+                <Slope Min="30" Max="90" />
+                <Transition>10</Transition>
+            </SurfaceDetail>
+
+            <CustomMaterialTable>
+                <Material Material="MoonRocks" Value ="190" MaxDepth ="5"/>
+                <Material Material="MoonSoil" Value ="174" MaxDepth ="5"/>
+                <Material Material="Ice" Value ="158" MaxDepth ="5"/>
+            </CustomMaterialTable>
+
+
+            <!-- Earthmoon definitions -->
+            <ComplexMaterials>
+                <MaterialGroup Name="Craters" Value="48">
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.5" Max="1"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="40" Max="70"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0" Max="0.3"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="0" Max="30"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.4" Max="0.6"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="0" Max="30"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="Ice" Depth="5"/>
+                        </Layers>
+                        <Height Min="0" Max="0.5"/>
+                        <Latitude Min="60" Max="90"/>
+                        <Slope Min="0" Max="10"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="Ice" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.25" Max="0.5"/>
+                        <Latitude Min="60" Max="90"/>
+                        <Slope Min="30" Max="60"/>
+                    </Rule>
+
+                </MaterialGroup>
+
+                <MaterialGroup Name="Other features" Value="16">
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.5" Max="1"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="40" Max="70"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0" Max="0.3"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="0" Max="30"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.4" Max="0.6"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="0" Max="30"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="Ice" Depth="5"/>
+                        </Layers>
+                        <Height Min="0" Max="0.5"/>
+                        <Latitude Min="60" Max="90"/>
+                        <Slope Min="0" Max="10"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="Ice" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.25" Max="0.5"/>
+                        <Latitude Min="60" Max="90"/>
+                        <Slope Min="30" Max="60"/>
+                    </Rule>
+
+                </MaterialGroup>
+
+                <MaterialGroup Name="Other features 2" Value="0">
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.5" Max="1"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="40" Max="70"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0" Max="0.3"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="0" Max="30"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="MoonSoil" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.4" Max="0.6"/>
+                        <Latitude Min="0" Max="90"/>
+                        <Slope Min="0" Max="30"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="Ice" Depth="5"/>
+                        </Layers>
+                        <Height Min="0" Max="0.5"/>
+                        <Latitude Min="60" Max="90"/>
+                        <Slope Min="0" Max="10"/>
+                    </Rule>
+
+                    <Rule>
+                        <Layers>
+                            <Layer Material="Ice" Depth="5"/>
+                        </Layers>
+                        <Height Min="0.25" Max="0.5"/>
+                        <Latitude Min="60" Max="90"/>
+                        <Slope Min="30" Max="60"/>
+                    </Rule>
+                </MaterialGroup>
+            </ComplexMaterials>
+
+            <EnvironmentItems>
+                <Item>
+                    <Biomes>
+                        <Biome>0</Biome>
+                    </Biomes>
+                    <Materials>
+                        <Material>MoonSoil</Material>
+                    </Materials>
+                    <Items>
+                        <Item TypeId="MyObjectBuilder_VoxelMapStorageDefinition" GroupId="StoneCoverageIronCore" ModifierId="Moon" Density="0.003" />
+                    </Items>
+                    <Rule>
+                        <Height Min="0" Max="0.7"/>
+                        <Latitude Min="0" Max="80"/>
+                        <Slope Min="0" Max="15"/>
+                    </Rule>
+                </Item>
+
+                <Item>
+                    <Biomes>
+                        <Biome>0</Biome>
+                    </Biomes>
+                    <Materials>
+                        <Material>MoonRocks</Material>
+                    </Materials>
+                    <Items>
+                        <Item TypeId="MyObjectBuilder_VoxelMapStorageDefinition" GroupId="StoneCoverageIronCore" ModifierId="Moon" Density="0.003" />
+                    </Items>
+                    <Rule>
+                        <Height Min="0" Max="0.7"/>
+                        <Latitude Min="0" Max="80"/>
+                        <Slope Min="0" Max="15"/>
+                    </Rule>
+                </Item>
+            </EnvironmentItems>
+
+            <OreMappings>
+                <!--!INSERT ONLY IN BLUE CHANNEL on MaterialTexture -->
+                <!-- EASY START-->
+                <Ore Value="200" Type="Iron_02" Start="3" Depth="20" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="220" Type="Nickel_01" Start="3" Depth="20" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="240" Type="Silicon_01" Start="3" Depth="20" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Fe 1-->
+                <Ore Value="1" Type="Iron_02" Start="50" Depth="250" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="4" Type="Iron_02" Start="72" Depth="228" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="8" Type="Iron_02" Start="94" Depth="206" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Fe 2-->
+                <Ore Value="12" Type="Iron_02" Start="125" Depth="175" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="16" Type="Iron_02" Start="158" Depth="142" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="20" Type="Iron_02" Start="181" Depth="119" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Ni 1-->
+                <Ore Value="24" Type="Nickel_01" Start="60" Depth="240" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="28" Type="Nickel_01" Start="81" Depth="209" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="32" Type="Nickel_01" Start="110" Depth="190" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Ni 2-->
+                <Ore Value="36" Type="Nickel_01" Start="124" Depth="176" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="40" Type="Nickel_01" Start="167" Depth="133" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="44" Type="Nickel_01" Start="190" Depth="110" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Si 1-->
+                <Ore Value="48" Type="Silicon_01" Start="49" Depth="251" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="52" Type="Silicon_01" Start="63" Depth="237" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="56" Type="Silicon_01" Start="80" Depth="220" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Si 2-->
+                <Ore Value="60" Type="Silicon_01" Start="112" Depth="188" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="64" Type="Silicon_01" Start="135" Depth="165" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="68" Type="Silicon_01" Start="157" Depth="143" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- ORE Tier 2 -->
+                <!-- Co 1-->
+                <Ore Value="72" Type="Iron_02" Start="410" Depth="390" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="76" Type="Iron_02" Start="442" Depth="358" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="80" Type="Iron_02" Start="476" Depth="324" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Co 2-->
+                <Ore Value="84" Type="Iron_02" Start="552" Depth="248" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="88" Type="Iron_02" Start="575" Depth="225" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="92" Type="Iron_02" Start="592" Depth="208" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Ag 1-->
+                <Ore Value="96" Type="Silver_01" Start="421" Depth="379" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="100" Type="Silver_01" Start="445" Depth="355" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="104" Type="Silver_01" Start="471" Depth="329" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Ag 2-->
+                <Ore Value="108" Type="Silver_01" Start="515" Depth="285" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="112" Type="Silver_01" Start="558" Depth="242" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="116" Type="Silver_01" Start="573" Depth="227" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Mg 1-->
+                <Ore Value="120" Type="Iron_02" Start="1023" Depth="405" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="124" Type="Iron_02" Start="1126" Depth="360" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="128" Type="Iron_02" Start="1229" Depth="280" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Mg 2-->
+                <Ore Value="132" Type="Iron_02" Start="1153" Depth="307" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="136" Type="Iron_02" Start="1255" Depth="248" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="140" Type="Iron_02" Start="1359" Depth="210" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- ORE Tier 3 -->
+                <!-- U 1-->
+                <Ore Value="144" Type="Ice_01" Start="1032" Depth="350" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="148" Type="Ice_01" Start="1135" Depth="300" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="152" Type="Ice_01" Start="1238" Depth="250" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- U 2-->
+                <Ore Value="156" Type="Ice_01" Start="1180" Depth="250" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="160" Type="Ice_01" Start="1289" Depth="200" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="164" Type="Ice_01" Start="1396" Depth="110" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Au 1-->
+                <Ore Value="168" Type="Gold_01" Start="1040" Depth="400" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="172" Type="Gold_01" Start="1142" Depth="320" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="176" Type="Gold_01" Start="1245" Depth="250" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Au 2-->
+                <Ore Value="180" Type="Gold_01" Start="1100" Depth="300" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="184" Type="Gold_01" Start="1270" Depth="200" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="188" Type="Gold_01" Start="1320" Depth="150" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                
+                <!-- Pt 1-->
+                <Ore Value="192" Type="Iron_02" Start="1050" Depth="400" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="196" Type="Iron_02" Start="1151" Depth="300" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="208" Type="Iron_02" Start="1253" Depth="240" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+                <!-- Pt 1-->
+                <Ore Value="212" Type="Iron_02" Start="1110" Depth="300" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="217" Type="Iron_02" Start="1214" Depth="200" TargetColor="#FFFFFF" ColorInfluence="15"/>
+                <Ore Value="222" Type="Iron_02" Start="1319" Depth="150" TargetColor="#FFFFFF" ColorInfluence="15"/>
+
+            </OreMappings>
+
+            <!-- END Earthmoon definitions -->
+
+            <SoundRules>
+                <!-- Day -->
+                <SoundRule>
+                    <Height Min="0" Max="0.75"/>
+                    <Latitude Min="0" Max="90"/>
+                    <SunAngleFromZenith Min="0" Max="90"/>
+                    <EnvironmentSound>AmbMoonDayLoop</EnvironmentSound>
+                </SoundRule>
+
+                <!-- Night -->
+                <SoundRule>
+                    <Height Min="0" Max="0.75"/>
+                    <Latitude Min="0" Max="90"/>
+                    <SunAngleFromZenith Min="90" Max="180"/>
+                    <EnvironmentSound>AmbMoonNightLoop</EnvironmentSound>
+                </SoundRule>
+            </SoundRules>
+
+            <MusicCategories>
+                <MusicCategory Category="Planet" Frequency="0.75" />
+                <MusicCategory Category="Mystery" Frequency="0.075" />
+                <MusicCategory Category="Danger" Frequency="0.075" />
+                <MusicCategory Category="Space" Frequency="0.15" />
+            </MusicCategories>
+
+            <DefaultSurfaceMaterial Material="MoonRocks" MaxDepth="5"/>
+
+            <HasAtmosphere>false</HasAtmosphere>
+
+            <SurfaceGravity>0.25</SurfaceGravity>
+            <Deviation Min ="0.005" Max ="0.003"/>
+            <MaterialsMaxDepth Min="4000" Max="4000"/>
+            <MaterialsMinDepth Min="20" Max="20"/>
+
+            <HillParams Min = "-0.03" Max ="0.03"/>
+            <MinimumSurfaceLayerDepth>5</MinimumSurfaceLayerDepth>
+        </PlanetGeneratorDefinition>
+
+    </PlanetGeneratorDefinitions>
+</Definitions>
